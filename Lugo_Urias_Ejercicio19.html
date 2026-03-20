@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lugo Urías Yeidckon Zaid : P19</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f0f2f5;
+        color: #333;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 680px;
+        margin: 0 auto;
+      }
+
+      header {
+        background: #1e3a5f;
+        color: #fff;
+        border-radius: 10px;
+        padding: 24px 28px;
+        margin-bottom: 24px;
+      }
+
+      header p {
+        font-size: 11px;
+        color: #a0b4c8;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      header h1 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .section {
+        background: #fff;
+        border: 1px solid #dde1e7;
+        border-radius: 10px;
+        padding: 24px 28px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      }
+
+      .section-title {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #888;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .method-label {
+        display: inline-block;
+        background: #eef2f7;
+        color: #1e3a5f;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        font-family: monospace;
+      }
+
+      .output-box {
+        background: #fafafa;
+        border: 1px solid #e0e4ea;
+        border-radius: 6px;
+        padding: 14px 16px;
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 10px;
+      }
+
+      .output-box span {
+        font-weight: 600;
+        color: #1e3a5f;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 9px 18px;
+        background: #1e3a5f;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 6px;
+      }
+
+      .btn:hover { background: #26497a; }
+
+      .console-hint {
+        font-size: 12px;
+        color: #888;
+        margin-top: 8px;
+      }
+
+      .console-hint code {
+        background: #eee;
+        padding: 1px 6px;
+        border-radius: 3px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <header>
+        <p>Práctica 19 — Salidas de texto en JavaScript</p>
+        <h1>Lugo Urías Yeidckon Zaid</h1>
+      </header>
+
+      <!--innerHTML-->
+      <div class="section">
+        <div class="section-title">Método 1 — Elemento HTML</div>
+        <div class="method-label">innerHTML / innerText</div>
+        <div class="output-box" id="salida-innerHTML"></div>
+        <div class="output-box" id="salida-innerText"></div>
+      </div>
+
+      <!--document.write-->
+      <div class="section">
+        <div class="section-title">Método 2 — document.write()</div>
+        <div class="method-label">document.write()</div>
+        <div class="output-box" id="salida-write"></div>
+        <p style="font-size:12px; color:#888; margin-top:8px;">
+          <code>document.write()</code> sobreescribe el documento si se llama después de que cargue la página, por eso se redirige a este contenedor.
+        </p>
+      </div>
+
+      <!--window.alert-->
+      <div class="section">
+        <div class="section-title">Método 3 — Cuadro de alerta</div>
+        <div class="method-label">window.alert()</div>
+        <p style="font-size:13px; color:#555; margin-bottom:10px;">
+          Muestra los datos en una ventana emergente del navegador.
+        </p>
+        <button class="btn" onclick="mostrarAlerta()">Mostrar alert()</button>
+      </div>
+
+      <!--console.log-->
+      <div class="section">
+        <div class="section-title">Método 4 — Consola del navegador</div>
+        <div class="method-label">console.log()</div>
+        <p style="font-size:13px; color:#555; margin-bottom:10px;">
+          Los datos se envían a la consola del navegador al cargar la página.
+        </p>
+        <button class="btn" onclick="mostrarConsola()">Enviar a consola</button>
+        <p class="console-hint">Abre la consola con <code>F12</code> → pestaña <code>Console</code> para verlo.</p>
+      </div>
+
+    </div>
+
+    <script>
+      // Datos personales
+      const datos = {
+        nombre:   "Yeidckon Zaid Lugo Urías",
+        carrera:  "Ingeniería en Software",
+        semestre: "6to Semestre",
+        materia:  "Introducción al Desarrollo Web",
+        email:    "2312338.lugo@ms.uas.edu.mx"
+      };
+
+      //innerHTML — interpreta etiquetas HTML
+      document.getElementById("salida-innerHTML").innerHTML =
+        "<strong>innerHTML:</strong><br>" +
+        "Nombre: <span>" + datos.nombre + "</span><br>" +
+        "Carrera: <span>" + datos.carrera + "</span><br>" +
+        "Semestre: <span>" + datos.semestre + "</span>";
+
+      //innerText — solo texto plano, sin HTML
+      document.getElementById("salida-innerText").innerText =
+        "innerText:\n" +
+        "Materia: " + datos.materia + "\n" +
+        "Email: " + datos.email;
+
+      //Simulación de document.write() en un contenedor
+      document.getElementById("salida-write").innerHTML =
+        "<strong>document.write():</strong><br>" +
+        datos.nombre + " | " + datos.carrera + " | " + datos.semestre;
+
+      //window.alert()
+      function mostrarAlerta() {
+        window.alert(
+          "=== Datos personales ===\n" +
+          "Nombre:   " + datos.nombre   + "\n" +
+          "Carrera:  " + datos.carrera  + "\n" +
+          "Semestre: " + datos.semestre + "\n" +
+          "Materia:  " + datos.materia  + "\n" +
+          "Email:    " + datos.email
+        );
+      }
+
+      //console.log()
+      function mostrarConsola() {
+        console.log("=== Datos personales ===");
+        console.log("Nombre:  ", datos.nombre);
+        console.log("Carrera: ", datos.carrera);
+        console.log("Semestre:", datos.semestre);
+        console.log("Materia: ", datos.materia);
+        console.log("Email:   ", datos.email);
+        console.log("Objeto completo:", datos);
+      }
+
+      // Ejecutar salida en consola
+      mostrarConsola();
+    </script>
+  </body>
+</html>
