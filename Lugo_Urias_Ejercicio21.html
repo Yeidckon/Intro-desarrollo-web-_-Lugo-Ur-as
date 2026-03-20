@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lugo Urías Yeidckon Zaid : P21</title>
+  </head>
+  <body>
+    <h2>Operaciones Aritméticas con Formularios y JavaScript</h2>
+
+    <label>Variable A:</label>
+    <input type="number" id="ValorA">
+    <br /><br />
+
+    <label>Variable B:</label>
+    <input type="number" id="ValorB">
+    <br /><br />
+
+    <button onclick="calcular('suma')">Suma</button>
+    <button onclick="calcular('resta')">Resta</button>
+    <button onclick="calcular('multiplicacion')">Multiplicacion</button>
+    <button onclick="calcular('division')">Division</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      var a;
+      var b;
+
+      function calcular(operacion) {
+        a = parseFloat(document.getElementById("ValorA").value);
+        b = parseFloat(document.getElementById("ValorB").value);
+        var resultado;
+
+        if (operacion === "suma")           resultado = a + b;
+        if (operacion === "resta")          resultado = a - b;
+        if (operacion === "division")       resultado = a / b;
+        if (operacion === "multiplicacion") resultado = a * b;
+
+        document.getElementById("resultado").innerHTML =
+          "Resultado: " + a + " " + operacion + " " + b + " = " + resultado;
+      }
+    </script>
+
+  </body>
+</html>
