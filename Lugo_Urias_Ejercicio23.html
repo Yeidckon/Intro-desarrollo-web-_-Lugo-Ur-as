@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lugo Urías Yeidckon Zaid : P23</title>
+    <style>
+      body {
+        background: #f0f2f5;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+
+      .contenedor {
+        background: #ffffff;
+        border: 1px solid #dde1e7;
+        border-radius: 10px;
+        padding: 32px 36px;
+        width: 100%;
+        max-width: 420px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      }
+
+      h2 {
+        color: #1a4b8c;
+        font-size: 18px;
+        margin-bottom: 6px;
+        place-self: center;
+      }
+
+      p.subtitulo {
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 24px;
+      }
+
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 4px;
+      }
+
+      input {
+        width: 100%;
+        padding: 9px 12px;
+        border: 1px solid #d0d5dd;
+        border-radius: 6px;
+        font-size: 14px;
+        margin-bottom: 16px;
+        outline: none;
+      }
+
+      input:focus {
+        border-color: #1a4b8c;
+      }
+
+      button {
+        width: 100%;
+        padding: 11px;
+        background: #1a4b8c;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 4px;
+      }
+
+      button:hover {
+        background: #163d73;
+      }
+
+      .resultado-box {
+        margin-top: 24px;
+        background: #f0f4fb;
+        border: 1px solid #c5d3ea;
+        border-radius: 8px;
+        padding: 18px 20px;
+        display: none;
+      }
+
+      .resultado-box .imc-valor {
+        font-size: 36px;
+        font-weight: bold;
+        color: #1a4b8c;
+        text-align: center;
+      }
+
+      .resultado-box .imc-label {
+        text-align: center;
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 12px;
+      }
+
+      .resultado-box .grado {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 8px 14px;
+        border-radius: 6px;
+      }
+
+      .bajo      { background: #d0eaff; color: #1a4b8c; }
+      .normal    { background: #d4f5e2; color: #1a6b3c; }
+      .sobrepeso { background: #fff3cd; color: #856404; }
+      .obesidad1 { background: #ffe0cc; color: #a03a00; }
+      .obesidad2 { background: #ffd0d0; color: #8b0000; }
+      .obesidad3 { background: #f5b0b0; color: #6b0000; }
+
+      .tabla {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 24px;
+        font-size: 12px;
+      }
+
+      .tabla th {
+        background: #1a4b8c;
+        color: #fff;
+        padding: 7px 10px;
+        text-align: left;
+      }
+
+      .tabla td {
+        padding: 6px 10px;
+        border-bottom: 1px solid #e5e5e5;
+        color: #444;
+      }
+
+      .tabla tr:last-child td { border-bottom: none; }
+    </style>
+  </head>
+  <body>
+    <div class="contenedor">
+      <h2>Índice de Masa Corporal</h2>
+      <p class="subtitulo">Cálculo de IMC para mujer</p>
+
+      <label>Peso (kg):</label>
+      <input type="number" id="peso" placeholder="Ej. 65" min="1" />
+
+      <label>Estatura (cm):</label>
+      <input type="number" id="estatura" placeholder="Ej. 165" min="1" />
+
+      <button onclick="calcularIMC()">Calcular IMC</button>
+
+      <div class="resultado-box" id="resultado-box">
+        <div class="imc-valor" id="imc-valor"></div>
+        <div class="imc-label">IMC (kg/m²)</div>
+        <div class="grado" id="grado"></div>
+      </div>
+
+      <!-- Tabla de referencia -->
+      <table class="tabla">
+        <tr>
+          <th>IMC (kg/m²)</th>
+          <th>Clasificación</th>
+        </tr>
+        <tr><td>Menos de 18.5</td><td>Bajo peso</td></tr>
+        <tr><td>18.5 — 24.9</td><td>Peso normal</td></tr>
+        <tr><td>25.0 — 29.9</td><td>Sobrepeso</td></tr>
+        <tr><td>30.0 — 34.9</td><td>Obesidad grado I</td></tr>
+        <tr><td>35.0 — 39.9</td><td>Obesidad grado II</td></tr>
+        <tr><td>40.0 o más</td><td>Obesidad grado III</td></tr>
+      </table>
+    </div>
+
+    <script>
+      function calcularIMC() {
+        var peso     = parseFloat(document.getElementById("peso").value);
+        var estatura = parseFloat(document.getElementById("estatura").value);
+
+        if (isNaN(peso) || isNaN(estatura) || peso <= 0 || estatura <= 0) {
+          alert("Por favor ingresa valores válidos para peso y estatura.");
+          return;
+        }
+
+        // Convertir estatura de cm a metros
+        var estaturaM = estatura / 100;
+
+        // Fórmula IMC = peso / estatura²
+        var imc = peso / (estaturaM * estaturaM);
+        var imcRedondeado = imc.toFixed(2);
+
+        // Determinar clasificación
+        var clasificacion = "";
+        var clase = "";
+
+        if (imc < 18.5) {
+          clasificacion = "Bajo peso";
+          clase = "bajo";
+        } else if (imc < 25) {
+          clasificacion = "Peso normal";
+          clase = "normal";
+        } else if (imc < 30) {
+          clasificacion = "Sobrepeso";
+          clase = "sobrepeso";
+        } else if (imc < 35) {
+          clasificacion = "Obesidad grado I";
+          clase = "obesidad1";
+        } else if (imc < 40) {
+          clasificacion = "Obesidad grado II";
+          clase = "obesidad2";
+        } else {
+          clasificacion = "Obesidad grado III";
+          clase = "obesidad3";
+        }
+
+        // Mostrar resultado
+        var box   = document.getElementById("resultado-box");
+        var valor = document.getElementById("imc-valor");
+        var grado = document.getElementById("grado");
+
+        valor.innerHTML = imcRedondeado;
+        grado.innerHTML = clasificacion;
+        grado.className = "grado " + clase;
+        box.style.display = "block";
+      }
+    </script>
+
+  </body>
+</html>
