@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lugo Urías Yeidckon Zaid : P16</title>
+    <link rel="stylesheet" href="Estilo_16.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">
+        <div class="badge">Sistema de Control</div>
+        <h2>Bitácora de <span>Préstamo</span> de Equipos</h2>
+      </div>
+
+      <div class="card-body">
+        <form action="#" method="post">
+
+          <!-- Datos del solicitante -->
+          <div class="form-section">
+            <div class="section-label">Datos del Solicitante</div>
+
+            <div class="field">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez López" required />
+            </div>
+
+            <div class="field">
+              <label for="Carrera">Carrera</label>
+              <select id="Carrera" name="Carrera" required>
+                <option value="">Seleccione una carrera</option>
+                <option value="V">Ing. Civil</option>
+                <option value="G">Ing. en Geodesia</option>
+                <option value="S">Ing. en Software</option>
+                <option value="IP">Ing. en Procesos</option>
+                <option value="IN">Ing. Industrial</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Rol</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="alumno" name="rol" value="alumno" required />
+                  <label for="alumno">Alumno</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="profesor" name="rol" value="profesor" />
+                  <label for="profesor">Profesor</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Datos del equipo -->
+          <div class="form-section">
+            <div class="section-label">Datos del Equipo</div>
+
+            <div class="field">
+              <label for="prestamo">Equipo en préstamo</label>
+              <input type="text" id="prestamo" name="prestamo" placeholder="Ej. Laptop Dell #04, Proyector..." required />
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Hora de préstamo -->
+          <div class="form-section">
+            <div class="section-label">Hora de Préstamo</div>
+            <div class="dt-grid">
+              <div class="field">
+                <label for="fe_pr">Fecha</label>
+                <input type="date" name="fe_pr" id="fe_pr" />
+              </div>
+              <div class="field">
+                <label for="hr_pr">Hora</label>
+                <input type="time" name="hr_pr" id="hr_pr" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Hora de entrega -->
+          <div class="form-section">
+            <div class="section-label">Hora de Entrega</div>
+            <div class="dt-grid">
+              <div class="field">
+                <label for="fe_en">Fecha</label>
+                <input type="date" name="fe_en" id="fe_en" />
+              </div>
+              <div class="field">
+                <label for="hr_en">Hora</label>
+                <input type="time" name="hr_en" id="hr_en" />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">Registrar Préstamo</button>
+
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

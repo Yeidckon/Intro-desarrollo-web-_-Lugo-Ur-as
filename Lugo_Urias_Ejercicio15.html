@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lugo Urías Yeidckon Zaid : P15</title>
+  </head>
+  <body>
+    <h2><b>Bitacora de prestamo de equipos</b></h2>
+    <form action="#" method="post">
+      <label for="nombre">Nombre:</label><br />
+      <input type="text" id="nombre" name="nombre" required />
+      <br /><br />
+
+      <label for="Carreras">Carrera:</label><br />
+      <select id="Carrera" name="Carrera" required>
+        <option value="">Seleccione una carrera</option>
+        <option value="V">Ing. Civil</option>
+        <option value="G">Ing. en Geodesia</option>
+        <option value="S">Ing. en Software</option>
+        <option value="IP">Ing. en Procesos</option>
+        <option value="IN">Ing. Industrial</option>
+      </select>
+      <br /><br />
+
+      <label>Rol:</label><br />
+      <input type="radio" id="alumno" name="rol" value="alumno" required />
+      <label for="alumno">Alumno</label>
+
+      <input type="radio" id="profesor" name="rol" value="profesor" required />
+      <label for="profesor">Profesor</label>
+      <br /><br />
+
+      <label for="prestamo">Prestamo:</label><br />
+      <input type="text" id="prestamo" name="prestamo" required />
+      <br /><br />
+
+      <p>Hora de prestamo</p>
+      <label for="fe_pr">Fecha:</label>
+      <input type="date" name="fe_pr" id="fe_pr" />
+      <br /><br />
+
+      <label for="hr_pr">Hora:</label>
+      <input type="time" name="hr_pr" id="hr_pr" />
+      <br /><br />
+
+      <p>Hora de entrega</p>
+      <label for="fe_en">Fecha:</label>
+      <input type="date" name="fe_en" id="fe_en" />
+      <br /><br />
+
+      <label for="hr_en">Hora:</label>
+      <input type="time" name="hr_en" id="hr_en" />
+      <br /><br />
+
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>

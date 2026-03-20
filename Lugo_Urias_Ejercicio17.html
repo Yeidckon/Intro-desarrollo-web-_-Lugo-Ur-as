@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+/* Da estilo general al formulario */
+form {
+  border-radius: 5px;          /* Redondea las esquinas */
+  background-color: #f2f2f2;   /* Color de fondo gris claro */
+  padding: 20px;               /* Espacio interno alrededor del contenido */
+}
+
+/* Hace que cada etiqueta esté en una línea diferente */
+label {
+  display: block;              /* Fuerza salto de línea */
+}
+
+/* Aplica estilos a los campos de texto y al menú desplegable */
+input[type=text], select {
+  width: 100%;                 /* Ocupan todo el ancho del formulario */
+  padding: 12px;               /* Espacio interno del campo */
+  margin: 8px 0;               /* Separación vertical entre elementos */
+  display: inline-block;       /* Permite controlar dimensiones */
+  border: 1px solid #ccc;      /* Borde gris claro */
+  border-radius: 4px;          /* Esquinas redondeadas */
+  box-sizing: border-box;      /* Incluye padding y borde dentro del ancho total */
+}
+
+/* Estilo del botón de envío */
+input[type=submit] {
+  width: 100%;                 /* Ocupa todo el ancho */
+  background-color: red;       /* Fondo rojo */
+  color: white;                /* Texto blanco */
+  padding: 14px;               /* Espacio interno */
+  margin: 8px 0;               /* Separación vertical */
+  border: none;                /* Sin borde */
+  border-radius: 4px;          /* Bordes redondeados */
+  cursor: pointer;             /* Cambia el cursor al pasar encima */
+}
+
+/* Cambia el color del botón cuando el mouse pasa sobre él */
+input[type=submit]:hover {
+  background-color: #45a049;   /* Fondo verde al pasar el cursor */
+}
+
+</style>
+
+<body>
+
+<h2>Style an HTML Form with CSS</h2>
+
+<form action="/action_page.php">
+  <label for="fname">First Name</label>
+  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+  <label for="lname">Last Name</label>
+  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+  <label for="country">Country</label>
+  <select id="country" name="country">
+    <option value="australia">Australia</option>
+    <option value="canada">Canada</option>
+    <option value="usa">USA</option>
+  </select>
+ 
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
