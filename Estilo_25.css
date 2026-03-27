@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eaf4fb;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 60px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: #1a6fa8;
+  margin-bottom: 8px;
+}
+
+p.subtitulo {
+  font-size: 0.85rem;
+  color: #5a9abf;
+  margin-bottom: 32px;
+}
+
+/* ── Botón ── */
+#btnGenerar {
+  background-color: #2196f3;
+  color: #ffffff;
+  border: none;
+  padding: 14px 40px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  transition: background-color 0.2s;
+}
+
+#btnGenerar:hover {
+  background-color: #1769aa;
+}
+
+/* ── Grid de tarjetas ── */
+#contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* ── Tarjeta ── */
+.tabla-card {
+  background-color: #ffffff;
+  border: 1px solid #b3d9f2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabla-header {
+  background-color: #2196f3;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tabla-header .numero {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.tabla-header .titulo {
+  font-size: 0.8rem;
+  color: #d0eaff;
+}
+
+.tabla-body {
+  padding: 8px 0;
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 28px 16px 28px 16px 1fr;
+  align-items: center;
+  padding: 5px 16px;
+  font-size: 0.85rem;
+  gap: 4px;
+}
+
+.fila:hover {
+  background-color: #eaf4fb;
+}
+
+.fila .op {
+  color: #555;
+  text-align: right;
+}
+
+.fila .signo {
+  color: #2196f3;
+  text-align: center;
+}
+
+.fila .result {
+  font-weight: bold;
+  color: #1a6fa8;
+  text-align: right;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lugo Urías Yeidckon Zaid : P24</title>
+  <link rel="stylesheet" href="estilo_24.css" />
+</head>
+<body>
+
+  <div class="card">
+    <h1>Fecha</h1>
+    <p id="fecha"></p>
+  </div>
+
+  <script>
+    const hoy = new Date();
+
+    let diaSemana;
+    switch (hoy.getDay()) {
+      case 0: diaSemana = "domingo";    break;
+      case 1: diaSemana = "lunes";      break;
+      case 2: diaSemana = "martes";     break;
+      case 3: diaSemana = "miércoles";  break;
+      case 4: diaSemana = "jueves";     break;
+      case 5: diaSemana = "viernes";    break;
+      case 6: diaSemana = "sábado";     break;
+    }
+
+    let mes;
+    switch (hoy.getMonth()) {
+      case 0:  mes = "Enero";      break;
+      case 1:  mes = "Febrero";    break;
+      case 2:  mes = "Marzo";      break;
+      case 3:  mes = "Abril";      break;
+      case 4:  mes = "Mayo";       break;
+      case 5:  mes = "Junio";      break;
+      case 6:  mes = "Julio";      break;
+      case 7:  mes = "Agosto";     break;
+      case 8:  mes = "Septiembre"; break;
+      case 9:  mes = "Octubre";    break;
+      case 10: mes = "Noviembre";  break;
+      case 11: mes = "Diciembre";  break;
+    }
+
+    const dia  = hoy.getDate();
+    const anio = hoy.getFullYear();
+
+    const diaCap = diaSemana.charAt(0).toUpperCase() + diaSemana.slice(1);
+
+    document.getElementById("fecha").innerHTML =
+      `Hoy es <span class="highlight">${diaCap}</span> ${dia} de
+       <span class="highlight">${mes}</span> del año
+       <span class="highlight">${anio}</span>`;
+  </script>
+
+</body>
+</html>
